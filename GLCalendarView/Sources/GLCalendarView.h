@@ -20,6 +20,7 @@
 - (void)calenderView:(GLCalendarView *)calendarView didUpdateRange:(GLCalendarDateRange *)range toBeginDate:(NSDate *)beginDate endDate:(NSDate *)endDate;
 @optional
 - (NSArray *)weekDayTitlesForCalendarView:(GLCalendarView *)calendarView;
+- (void)calendarView:(GLCalendarView *)calendarView didSelectItemAtDate:(NSDate *)selectedDate;
 @end
 
 

@@ -273,6 +273,8 @@ static NSString * const CELL_REUSE_IDENTIFIER = @"DayCell";
 {
     NSDate *date = [self dateForCellAtIndexPath:indexPath];
     GLCalendarDateRange *range = [self selectedRangeForDate:date];
+
+    [self.delegate calendarView:self didSelectItemAtDate:date];
     
     // if click in a range
     if (range && range.editable) {
