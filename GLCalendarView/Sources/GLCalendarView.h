@@ -22,6 +22,7 @@
 - (NSArray *)weekDayTitlesForCalendarView:(GLCalendarView *)calendarView;
 - (void)calendarView:(GLCalendarView *)calendarView didSelectItemAtDate:(NSDate *)selectedDate;
 - (UIColor *)calendarView:(GLCalendarView *)calendarView backgroundColorForDate:(NSDate *)date;
+- (void)calendarView:(GLCalendarView *)calendarView didScrollToDate:(NSDate *)date;
 @end
 
 

@@ -348,6 +348,11 @@ static NSString * const CELL_REUSE_IDENTIFIER = @"DayCell";
 {
     // update month cover
     self.monthCoverView.contentOffset = self.collectionView.contentOffset;
+
+    NSDate *date = [self dateAtLocation:CGPointMake(10, 10 + self.collectionView.contentOffset.y)];
+    if (date) {
+        [self.delegate calendarView:self didScrollToDate:date];
+    }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
