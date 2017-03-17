@@ -46,4 +46,5 @@ typedef NS_ENUM(NSInteger, RANGE_DISPLAY_MODE) {
 @property (nonatomic, weak, readonly) GLCalendarDateRange *range;
 
 - (void)setDate:(NSDate *)date range:(GLCalendarDateRange *)range cellPosition:(CELL_POSITION)cellPosition enlargePoint:(ENLARGE_POINT)enlargePoint;
+- (void)updateBackgroundColor:(UIColor *)color;
 @end

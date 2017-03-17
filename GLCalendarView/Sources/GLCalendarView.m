@@ -248,6 +248,11 @@ static NSString * const CELL_REUSE_IDENTIFIER = @"DayCell";
         enlargePoint = ENLARGE_NONE;
     }
     [cell setDate:date range:[self selectedRangeForDate:date] cellPosition:cellPosition enlargePoint:enlargePoint];
+
+    UIColor *cellBackgroundColor = [self.delegate calendarView:self backgroundColorForDate:date];
+    if (cellBackgroundColor) {
+        [cell updateBackgroundColor:cellBackgroundColor];
+    }
     
     return cell;
 }

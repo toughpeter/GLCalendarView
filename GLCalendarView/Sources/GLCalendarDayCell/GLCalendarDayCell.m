@@ -216,6 +216,10 @@
     return [self.date compare:[NSDate date]] == NSOrderedDescending;
 }
 
+- (void)updateBackgroundColor:(UIColor *)color {
+    self.backgroundCover.fillColor = color;
+}
+
 static NSArray *months;
 - (NSString *)monthText:(NSInteger)month {
     if (!months) {
