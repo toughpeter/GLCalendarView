@@ -130,11 +130,21 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
     if (!self.inEdit && !self.continuousRangeDisplay) {
         CGRect rect = CGRectMake(borderWidth + paddingLeft, borderWidth + paddingTop, width - borderWidth * 2 - paddingLeft - paddingRight,  height - borderWidth * 2 - paddingTop * 2);
+
+        if (rect.size.width > rect.size.height) {
+            rect.origin.x += (rect.size.width - rect.size.height) / 2;
+            rect.size.width = rect.size.height;
+        } else {
+            rect.origin.y += (rect.size.height - rect.size.width) / 2;
+            rect.size.height = rect.size.width;
+        }
+
         if (self.backgroundImage) {
             [self.backgroundImage drawInRect:rect];
             return;
         }
         path = [UIBezierPath bezierPathWithOvalInRect:rect];
+
         [path closePath];
         [self.fillColor setFill];
         [path fill];
@@ -160,7 +170,17 @@
         [path addLineToPoint:CGPointMake(0, height - borderWidth - paddingTop)];
         [path closePath];
     } else if (self.rangePosition == RANGE_POSITION_SINGLE) {
-        path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(borderWidth + paddingLeft, borderWidth + paddingTop, width - borderWidth * 2 - paddingLeft - paddingRight,  height - borderWidth * 2 - paddingTop * 2)];
+        CGRect rect = CGRectMake(borderWidth + paddingLeft, borderWidth + paddingTop, width - borderWidth * 2 - paddingLeft - paddingRight,  height - borderWidth * 2 - paddingTop * 2);
+
+        if (rect.size.width > rect.size.height) {
+            rect.origin.x += (rect.size.width - rect.size.height) / 2;
+            rect.size.width = rect.size.height;
+        } else {
+            rect.origin.y += (rect.size.height - rect.size.width) / 2;
+            rect.size.height = rect.size.width;
+        }
+
+        path = [UIBezierPath bezierPathWithOvalInRect: rect];
         [path closePath];
     }
     if (_inEdit) {
@@ -185,8 +205,18 @@
     
     CGFloat height = rect.size.height;
     CGFloat width = rect.size.width;
-            
-    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(borderWidth + paddingLeft, borderWidth + paddingTop, width - borderWidth * 2 - paddingLeft - paddingRight,  height - borderWidth * 2 - paddingTop * 2)];
+
+    rect = CGRectMake(borderWidth + paddingLeft, borderWidth + paddingTop, width - borderWidth * 2 - paddingLeft - paddingRight,  height - borderWidth * 2 - paddingTop * 2);
+
+    if (rect.size.width > rect.size.height) {
+        rect.origin.x += (rect.size.width - rect.size.height) / 2;
+        rect.size.width = rect.size.height;
+    } else {
+        rect.origin.y += (rect.size.height - rect.size.width) / 2;
+        rect.size.height = rect.size.width;
+    }
+
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: rect];
     [path closePath];
     [self.fillColor setFill];
     [path fill];
