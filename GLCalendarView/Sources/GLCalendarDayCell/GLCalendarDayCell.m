@@ -220,6 +220,11 @@
     self.backgroundCover.fillColor = color;
 }
 
+- (void)updateTextColor:(UIColor *)color {
+    self.dayLabel.textColor = color;
+    self.monthLabel.textColor = color;
+}
+
 static NSArray *months;
 - (NSString *)monthText:(NSInteger)month {
     if (!months) {

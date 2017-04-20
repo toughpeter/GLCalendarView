@@ -253,7 +253,12 @@ static NSString * const CELL_REUSE_IDENTIFIER = @"DayCell";
     if (cellBackgroundColor) {
         [cell updateBackgroundColor:cellBackgroundColor];
     }
-    
+
+    UIColor *cellTextColor = [self.delegate calendarView:self textColorForDate:date];
+    if (cellTextColor) {
+        [cell updateTextColor:cellTextColor];
+    }
+
     return cell;
 }
 
